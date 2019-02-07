@@ -1,5 +1,5 @@
 module Enemies
-  class RegisterEnemy < Command
+  class PutEnemyOnList < Command
     attribute :enemy_id, Types::UUID
     attribute :name,     Types::String
   end

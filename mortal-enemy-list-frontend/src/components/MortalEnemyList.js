@@ -13,6 +13,7 @@ class MortalEnemyList extends Component {
     };
 
     this.putNewEnemyOnList = this.putNewEnemyOnList.bind(this);
+    this.discardEnemy      = this.discardEnemy.bind(this);
   }
 
   componentDidMount() {
@@ -26,6 +27,10 @@ class MortalEnemyList extends Component {
     this.setState({ enemies: [...this.state.enemies, enemy] });
   }
 
+  discardEnemy(enemy_id) {
+    this.setState({ enemies: this.state.enemies.filter((enemy, _) => enemy.id !== enemy_id) });
+  }
+
   render() {
     const enemies = this.state.enemies;
 
@@ -35,7 +40,16 @@ class MortalEnemyList extends Component {
         <hr />
 
         <ul className="list">
-          { enemies.map(enemy => <MortalEnemy key={enemy.id} name={enemy.name} rank={enemy.rank} />) }
+          {
+            enemies.map(enemy => {
+              return <MortalEnemy
+                        key={enemy.id}
+                        id={enemy.id}
+                        name={enemy.name}
+                        rank={enemy.rank}
+                        discardEnemy={this.discardEnemy} />
+            })
+          }
         </ul>
 
         <NewMortalEnemyForm putNewEnemyOnList={this.putNewEnemyOnList} />

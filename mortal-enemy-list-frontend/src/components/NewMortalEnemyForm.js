@@ -17,6 +17,9 @@ class NewMortalEnemyForm extends Component {
   }
 
   sendNewEnemy(event) {
+    const uuid = uuidv4();
+    const name = this.state.name;
+
     fetch('http://localhost:3010/enemies', {
       method: 'POST',
       headers: {
@@ -24,11 +27,14 @@ class NewMortalEnemyForm extends Component {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        id:   uuidv4(),
-        name: this.state.name,
+        id:   uuid,
+        name: name,
       })
     })
-    .then(response => this.setState({name: ''}));
+    .then(response => {
+      this.props.putNewEnemyOnList({id: uuid, name: name});
+      this.setState({name: ''});
+    });
   }
 
   handleNameChange(event) {

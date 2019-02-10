@@ -11,6 +11,8 @@ class MortalEnemyList extends Component {
     this.state = {
       enemies: []
     };
+
+    this.putNewEnemyOnList = this.putNewEnemyOnList.bind(this);
   }
 
   componentDidMount() {
@@ -18,6 +20,10 @@ class MortalEnemyList extends Component {
       .then(response => response.json())
       .then(data => this.setState({ enemies: data }))
       .catch(error => alert('There is a problem with server connection, try again later.'))
+  }
+
+  putNewEnemyOnList(enemy) {
+    this.setState({ enemies: [...this.state.enemies, enemy] });
   }
 
   render() {
@@ -32,7 +38,7 @@ class MortalEnemyList extends Component {
           { enemies.map(enemy => <MortalEnemy id={enemy.id} name={enemy.name} />) }
         </ul>
 
-        <NewMortalEnemyForm />
+        <NewMortalEnemyForm putNewEnemyOnList={this.putNewEnemyOnList} />
       </div>
     );
   }

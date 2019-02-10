@@ -4,7 +4,7 @@ import './MortalEnemy.scss'
 class MortalEnemy extends Component {
   render() {
     return (
-      <li className="mortal-enemy">{this.props.name}</li>
+      <li className="mortal-enemy">{this.props.name} | rank: {this.props.rank}</li>
     );
   }
 }

@@ -1,8 +1,6 @@
 module Enemies
   class OnDiscardEnemyFromList
     def call(command)
-      command.verify!
-
       ActiveRecord::Base.transaction do
         enemy = Enemy.new(command.enemy_id)
         enemy.load(stream_name(command.enemy_id), event_store: @event_store)

@@ -11,27 +11,27 @@ module Enemies
     end
 
     def put_on_list(name)
-      apply(Enemies::EnemyPutOnList.strict(data: {
+      apply(Enemies::EnemyPutOnList.new(data: {
         enemy_id: @id,
         name:     name
       }))
     end
 
     def discard_from_list
-      apply(Enemies::EnemyDiscardedFromList.strict(data: {
+      apply(Enemies::EnemyDiscardedFromList.new(data: {
         enemy_id: @id
       }))
     end
 
     def provide_description(description)
-      apply(Enemies::EnemyDescriptionProvided.strict(data: {
+      apply(Enemies::EnemyDescriptionProvided.new(data: {
         enemy_id:    @id,
         description: description
       }))
     end
 
     def add_nefarious_deed(nefarious_deed)
-      apply(Enemies::EnemyNefariousDeedAdded.strict(data: {
+      apply(Enemies::EnemyNefariousDeedAdded.new(data: {
         enemy_id:       @id,
         nefarious_deed: nefarious_deed
       }))
@@ -40,14 +40,14 @@ module Enemies
     def forgive_nefarious_deed(nefarious_deed)
       raise InvalidOperation unless find_nefarious_deed(nefarious_deed)
 
-      apply(Enemies::EnemyNefariousDeedForgived.strict(data: {
+      apply(Enemies::EnemyNefariousDeedForgiven.new(data: {
         enemy_id:       @id,
         nefarious_deed: nefarious_deed
       }))
     end
 
     def increase_rank
-      apply(Enemies::EnemyRankIncreased.strict(data: {
+      apply(Enemies::EnemyRankIncreased.new(data: {
         enemy_id: @id
       }))
     end
@@ -55,7 +55,7 @@ module Enemies
     def decrease_rank
       raise InvalidOperation if @rank.eql?(1)
 
-      apply(Enemies::EnemyRankDecreased.strict(data: {
+      apply(Enemies::EnemyRankDecreased.new(data: {
         enemy_id: @id
       }))
     end

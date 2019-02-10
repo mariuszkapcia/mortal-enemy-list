@@ -14,6 +14,8 @@ class MortalEnemyList extends Component {
 
     this.putNewEnemyOnList = this.putNewEnemyOnList.bind(this);
     this.discardEnemy      = this.discardEnemy.bind(this);
+    this.increaseEnemyRank = this.increaseEnemyRank.bind(this);
+    this.decreaseEnemyRank = this.decreaseEnemyRank.bind(this);
   }
 
   componentDidMount() {
@@ -31,6 +33,36 @@ class MortalEnemyList extends Component {
     this.setState({ enemies: this.state.enemies.filter((enemy, _) => enemy.id !== enemy_id) });
   }
 
+  increaseEnemyRank(enemy_id) {
+    const new_enemies = this.state.enemies.map((enemy, index) => {
+      if (enemy.id !== enemy_id) {
+        return enemy;
+      }
+
+      return {
+        ...enemy,
+        rank: enemy.rank + 1
+      };
+    });
+
+    this.setState({ enemies: new_enemies });
+  }
+
+  decreaseEnemyRank(enemy_id) {
+    const new_enemies = this.state.enemies.map((enemy, index) => {
+      if (enemy.id !== enemy_id) {
+        return enemy;
+      }
+
+      return {
+        ...enemy,
+        rank: enemy.rank - 1
+      };
+    });
+
+    this.setState({ enemies: new_enemies });
+  }
+
   render() {
     const enemies = this.state.enemies;
 
@@ -41,13 +73,17 @@ class MortalEnemyList extends Component {
 
         <ul className="list">
           {
-            enemies.map(enemy => {
-              return <MortalEnemy
-                        key={enemy.id}
-                        id={enemy.id}
-                        name={enemy.name}
-                        rank={enemy.rank}
-                        discardEnemy={this.discardEnemy} />
+            enemies
+              .sort((a, b) => b.rank - a.rank)
+              .map(enemy => {
+                return <MortalEnemy
+                          key={enemy.id}
+                          id={enemy.id}
+                          name={enemy.name}
+                          rank={enemy.rank}
+                          discardEnemy={this.discardEnemy}
+                          increaseEnemyRank={this.increaseEnemyRank}
+                          decreaseEnemyRank={this.decreaseEnemyRank} />
             })
           }
         </ul>

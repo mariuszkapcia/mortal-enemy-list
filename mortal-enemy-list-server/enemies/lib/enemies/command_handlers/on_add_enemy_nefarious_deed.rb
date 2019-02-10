@@ -1,5 +1,5 @@
 module Enemies
-  class OnAddEnemyInfariousDeed
+  class OnAddEnemyNefariousDeed
     def call(command)
       command.verify!
 

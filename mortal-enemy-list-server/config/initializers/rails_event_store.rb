@@ -14,7 +14,7 @@ Rails.configuration.to_prepare do
   command_bus.register(Enemies::PutEnemyOnList, Enemies::OnPutEnemyOnList.new(event_store))
   command_bus.register(Enemies::DiscardEnemyFromList, Enemies::OnDiscardEnemyFromList.new(event_store))
   command_bus.register(Enemies::ProvideEnemyDescription, Enemies::OnProvideEnemyDescription.new(event_store))
-  command_bus.register(Enemies::AddEnemyNefariousDeed, Enemies::OnAddEnemyInfariousDeed.new(event_store))
+  command_bus.register(Enemies::AddEnemyNefariousDeed, Enemies::OnAddEnemyNefariousDeed.new(event_store))
   command_bus.register(Enemies::ForgiveEnemyNefariousDeed, Enemies::OnForgiveEnemyInfariousDeed.new(event_store))
   command_bus.register(Enemies::IncreaseEnemyRank, Enemies::OnIncreaseEnemyRank.new(event_store))
   command_bus.register(Enemies::DecreaseEnemyRank, Enemies::OnDecreaseEnemyRank.new(event_store))

@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+
+import MortalEnemy from './MortalEnemy'
 import './MortalEnemyList.scss'
 
 class MortalEnemyList extends Component {
@@ -20,17 +22,13 @@ class MortalEnemyList extends Component {
   render() {
     const enemies = this.state.enemies;
 
-    const generateEnemyRow = (enemy) => {
-      return (
-        <li key={enemy.id}>{enemy.name}</li>
-      );
-    }
-
     return (
-      <div className="mortal-enemy-list">
+      <div>
         <h1>Mortal enemy list</h1>
         <hr />
-        <ul>{ enemies.map(enemy => generateEnemyRow(enemy)) }</ul>
+        <ul className="mortal-enemy-list">
+          { enemies.map(enemy => <MortalEnemy id={enemy.id} name={enemy.name} />) }
+        </ul>
       </div>
     );
   }

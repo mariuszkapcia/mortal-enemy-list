@@ -15,7 +15,9 @@ Rails.configuration.to_prepare do
     UI::EnemyList::Builder.new(event_store: event_store),
     to: [
       Enemies::EnemyPutOnList,
-      Enemies::EnemyDiscardedFromList
+      Enemies::EnemyDiscardedFromList,
+      Enemies::EnemyRankIncreased,
+      Enemies::EnemyRankDecreased
     ]
   )
 

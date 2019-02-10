@@ -18,7 +18,9 @@ module UI
     def map_event_to_handler(event_class)
       {
         'Enemies::EnemyPutOnList'         => :apply_enemy_put_on_list,
-        'Enemies::EnemyDiscardedFromList' => :apply_enemy_discarded_from_list
+        'Enemies::EnemyDiscardedFromList' => :apply_enemy_discarded_from_list,
+        'Enemies::EnemyRankIncreased'     => :apply_enemy_rank_increased,
+        'Enemies::EnemyRankDecreased'     => :apply_enemy_rank_decreased,
       }.fetch(event_class.to_s)
     end
 
@@ -32,6 +34,16 @@ module UI
 
     def apply_enemy_discarded_from_list(event)
       @enemies.reject! { |enemy| enemy[:id] == event.data[:enemy_id] }
+    end
+
+    def apply_enemy_rank_increased(event)
+      enemy         = @enemies.find { |enemy| enemy[:id] == event.data[:enemy_id] }
+      enemy[:rank] += 1
+    end
+
+    def apply_enemy_rank_decreased(event)
+      enemy         = @enemies.find { |enemy| enemy[:id] == event.data[:enemy_id] }
+      enemy[:rank] -= 1
     end
   end
 end

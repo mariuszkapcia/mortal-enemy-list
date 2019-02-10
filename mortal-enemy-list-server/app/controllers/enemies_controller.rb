@@ -26,6 +26,26 @@ class EnemiesController < ApiController
     head :no_content
   end
 
+  def increase_rank
+    command_bus.call(
+      Enemies::IncreaseEnemyRank.new(
+        enemy_id: params[:id]
+      )
+    )
+
+    head :no_content
+  end
+
+  def decrease_rank
+    command_bus.call(
+      Enemies::DecreaseEnemyRank.new(
+        enemy_id: params[:id]
+      )
+    )
+
+    head :no_content
+  end
+
   private
 
   def command_bus

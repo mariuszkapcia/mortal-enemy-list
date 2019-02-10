@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
-import MortalEnemy from './MortalEnemy'
+import MortalEnemy        from './MortalEnemy'
+import NewMortalEnemyForm from './NewMortalEnemyForm'
 import './MortalEnemyList.scss'
 
 class MortalEnemyList extends Component {
@@ -26,9 +27,12 @@ class MortalEnemyList extends Component {
       <div className="mortal-enemy-list">
         <h1>Mortal enemy list</h1>
         <hr />
+
         <ul className="list">
           { enemies.map(enemy => <MortalEnemy id={enemy.id} name={enemy.name} />) }
         </ul>
+
+        <NewMortalEnemyForm />
       </div>
     );
   }

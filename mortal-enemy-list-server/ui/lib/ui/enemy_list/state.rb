@@ -25,7 +25,8 @@ module UI
     def apply_enemy_put_on_list(event)
       @enemies << {
         id:   event.data[:enemy_id],
-        name: event.data[:name]
+        name: event.data[:name],
+        rank: event.data[:rank]
       }
     end
 

@@ -13,7 +13,8 @@ module Enemies
     def put_on_list(name)
       apply(Enemies::EnemyPutOnList.new(data: {
         enemy_id: @id,
-        name:     name
+        name:     name,
+        rank:     @rank
       }))
     end
 

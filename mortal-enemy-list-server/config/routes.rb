@@ -1,3 +1,3 @@
 Rails.application.routes.draw do
-  resources :enemies, only: [:index, :create]
+  resources :enemies, only: [:index, :create, :destroy]
 end

@@ -16,6 +16,16 @@ class EnemiesController < ApiController
     head :no_content
   end
 
+  def destroy
+    command_bus.call(
+      Enemies::DiscardEnemyFromList.new(
+        enemy_id: params[:id]
+      )
+    )
+
+    head :no_content
+  end
+
   private
 
   def command_bus

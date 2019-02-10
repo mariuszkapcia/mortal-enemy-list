@@ -3,6 +3,14 @@ end
 
 require_dependency 'enemies/aggregates/enemy.rb'
 
+require_dependency 'enemies/command_handlers/on_put_enemy_on_list.rb'
+require_dependency 'enemies/command_handlers/on_discard_enemy_from_list.rb'
+require_dependency 'enemies/command_handlers/on_provide_enemy_description.rb'
+require_dependency 'enemies/command_handlers/on_increase_enemy_rank.rb'
+require_dependency 'enemies/command_handlers/on_decrease_enemy_rank.rb'
+require_dependency 'enemies/command_handlers/on_add_enemy_nefarious_deed.rb'
+require_dependency 'enemies/command_handlers/on_forgive_enemy_nefarious_deed.rb'
+
 require_dependency 'enemies/commands/put_enemy_on_list.rb'
 require_dependency 'enemies/commands/discard_enemy_from_list.rb'
 require_dependency 'enemies/commands/provide_enemy_description.rb'

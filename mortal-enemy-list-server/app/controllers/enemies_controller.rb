@@ -1,6 +1,8 @@
 class EnemiesController < ApiController
   def index
-    render json: [{id: 'id', name: 'name'}], status: :ok
+    enemies = UI::EnemyList::Retriever.new(event_store: event_store).retrieve.enemies
+
+    render json: enemies, status: :ok
   end
 
   def create
@@ -18,5 +20,9 @@ class EnemiesController < ApiController
 
   def command_bus
     Rails.configuration.command_bus
+  end
+
+  def event_store
+    Rails.configuration.event_store
   end
 end

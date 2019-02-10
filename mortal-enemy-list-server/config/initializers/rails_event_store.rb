@@ -10,6 +10,15 @@ Rails.configuration.to_prepare do
     config.default_event_store = event_store
   end
 
+  # UI bounded context.
+  event_store.subscribe(
+    UI::EnemyList::Builder.new(event_store: event_store),
+    to: [
+      Enemies::EnemyPutOnList,
+      Enemies::EnemyDiscardedFromList
+    ]
+  )
+
   # Enemies commands.
   command_bus.register(Enemies::PutEnemyOnList, Enemies::OnPutEnemyOnList.new(event_store))
   command_bus.register(Enemies::DiscardEnemyFromList, Enemies::OnDiscardEnemyFromList.new(event_store))

@@ -23,10 +23,10 @@ class MortalEnemyList extends Component {
     const enemies = this.state.enemies;
 
     return (
-      <div>
+      <div className="mortal-enemy-list">
         <h1>Mortal enemy list</h1>
         <hr />
-        <ul className="mortal-enemy-list">
+        <ul className="list">
           { enemies.map(enemy => <MortalEnemy id={enemy.id} name={enemy.name} />) }
         </ul>
       </div>

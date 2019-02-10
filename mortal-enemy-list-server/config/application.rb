@@ -12,5 +12,6 @@ module MortalEnemyListServer
 
     config.paths.add 'lib/',        eager_load: true
     config.paths.add 'enemies/lib', eager_load: true
+    config.paths.add 'ui/lib',      eager_load: true
   end
 end

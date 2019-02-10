@@ -35,7 +35,7 @@ class MortalEnemyList extends Component {
         <hr />
 
         <ul className="list">
-          { enemies.map(enemy => <MortalEnemy id={enemy.id} name={enemy.name} />) }
+          { enemies.map(enemy => <MortalEnemy key={enemy.id} name={enemy.name} />) }
         </ul>
 
         <NewMortalEnemyForm putNewEnemyOnList={this.putNewEnemyOnList} />

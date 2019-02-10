@@ -4,7 +4,7 @@ import './MortalEnemy.scss'
 class MortalEnemy extends Component {
   render() {
     return (
-      <li className="mortal-enemy" key={this.props.id}>{this.props.name}</li>
+      <li className="mortal-enemy">{this.props.name}</li>
     );
   }
 }

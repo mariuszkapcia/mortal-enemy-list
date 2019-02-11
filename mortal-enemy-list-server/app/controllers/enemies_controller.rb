@@ -46,6 +46,17 @@ class EnemiesController < ApiController
     head :no_content
   end
 
+  def provide_description
+    command_bus.call(
+      Enemies::ProvideEnemyDescription.new(
+        enemy_id:    params[:id],
+        description: params[:description]
+      )
+    )
+
+    head :no_content
+  end
+
   private
 
   def command_bus

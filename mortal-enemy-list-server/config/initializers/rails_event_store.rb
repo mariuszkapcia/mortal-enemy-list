@@ -17,7 +17,8 @@ Rails.configuration.to_prepare do
       Enemies::EnemyPutOnList,
       Enemies::EnemyDiscardedFromList,
       Enemies::EnemyRankIncreased,
-      Enemies::EnemyRankDecreased
+      Enemies::EnemyRankDecreased,
+      Enemies::EnemyDescriptionProvided
     ]
   )
 

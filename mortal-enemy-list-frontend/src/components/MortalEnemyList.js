@@ -26,6 +26,9 @@ class MortalEnemyList extends Component {
   }
 
   putNewEnemyOnList(enemy) {
+    enemy.rank            = 1;
+    enemy.nefarious_deeds = [];
+
     this.setState({ enemies: [...this.state.enemies, enemy] });
   }
 

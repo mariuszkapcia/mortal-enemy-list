@@ -32,7 +32,7 @@ class NewMortalEnemyForm extends Component {
       })
     })
     .then(response => {
-      this.props.putNewEnemyOnList({id: uuid, name: name, rank: 1});
+      this.props.putNewEnemyOnList({ id: uuid, name: name });
       this.setState({name: ''});
     });
   }

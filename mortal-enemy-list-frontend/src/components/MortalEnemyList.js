@@ -82,6 +82,7 @@ class MortalEnemyList extends Component {
                           name={enemy.name}
                           rank={enemy.rank}
                           description={enemy.description}
+                          nefarious_deeds={enemy.nefarious_deeds}
                           discardEnemy={this.discardEnemy}
                           increaseEnemyRank={this.increaseEnemyRank}
                           decreaseEnemyRank={this.decreaseEnemyRank} />

@@ -47,7 +47,7 @@ class NewMortalEnemyForm extends Component {
     return (
       <div className="new-mortal-enemy-form">
         <input name="name" value={name} onChange={this.handleNameChange} />
-        <Button variant="outline-dark" disabled={!name} onClick={this.sendNewEnemy}>Add a new mortal enemy</Button>
+        <Button variant="outline-dark" disabled={!name} onClick={this.sendNewEnemy}>Add new mortal enemy</Button>
       </div>
     );
   }

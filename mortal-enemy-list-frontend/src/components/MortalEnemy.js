@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import Button               from 'react-bootstrap/Button';
 
-import MortalEnemyDescription from './MortalEnemyDescription'
-import MortalEnemyRank        from './MortalEnemyRank'
+import MortalEnemyDescription       from './MortalEnemyDescription'
+import MortalEnemyRank              from './MortalEnemyRank'
+import MortalEnemyNefariousDeedList from './MortalEnemyNefariousDeedList'
 import './MortalEnemy.scss'
 
 class MortalEnemy extends Component {
@@ -44,7 +45,12 @@ class MortalEnemy extends Component {
           rank={this.props.rank}
           increaseEnemyRank={this.props.increaseEnemyRank}
           decreaseEnemyRank={this.props.decreaseEnemyRank} />
-        <MortalEnemyDescription enemy_id={this.props.enemy_id} description={this.props.description} />
+        <MortalEnemyDescription
+          enemy_id={this.props.enemy_id}
+          description={this.props.description} />
+        <MortalEnemyNefariousDeedList
+          enemy_id={this.props.enemy_id}
+          nefarious_deeds={this.props.nefarious_deeds} />
       </li>
     );
   }

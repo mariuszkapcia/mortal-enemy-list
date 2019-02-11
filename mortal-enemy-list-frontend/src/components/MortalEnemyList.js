@@ -78,9 +78,10 @@ class MortalEnemyList extends Component {
               .map(enemy => {
                 return <MortalEnemy
                           key={enemy.id}
-                          id={enemy.id}
+                          enemy_id={enemy.id}
                           name={enemy.name}
                           rank={enemy.rank}
+                          description={enemy.description}
                           discardEnemy={this.discardEnemy}
                           increaseEnemyRank={this.increaseEnemyRank}
                           decreaseEnemyRank={this.decreaseEnemyRank} />

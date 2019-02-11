@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Button               from 'react-bootstrap/Button';
 
+import MortalEnemyDescription from './MortalEnemyDescription'
 import './MortalEnemy.scss'
 
 class MortalEnemy extends Component {
@@ -13,7 +14,7 @@ class MortalEnemy extends Component {
   }
 
   discard() {
-    const enemy_id = this.props.id;
+    const enemy_id = this.props.enemy_id;
 
     fetch(`http://localhost:3010/enemies/${enemy_id}`, {
       method: 'DELETE',
@@ -26,7 +27,7 @@ class MortalEnemy extends Component {
   }
 
   increaseRank() {
-    const enemy_id = this.props.id;
+    const enemy_id = this.props.enemy_id;
 
     fetch(`http://localhost:3010/enemies/${enemy_id}/increase_rank`, {
       method: 'PUT',
@@ -39,7 +40,7 @@ class MortalEnemy extends Component {
   }
 
   decreaseRank() {
-    const enemy_id = this.props.id;
+    const enemy_id = this.props.enemy_id;
 
     fetch(`http://localhost:3010/enemies/${enemy_id}/decrease_rank`, {
       method: 'PUT',
@@ -54,26 +55,31 @@ class MortalEnemy extends Component {
   render() {
     return (
       <li className="mortal-enemy">
-        <p className="name-rank">{this.props.name} (rank: {this.props.rank})</p>
-        <Button
-          className="discard-btn"
-          variant="outline-dark"
-          size="sm"
-          onClick={this.discard}
-        >Forgive</Button>
-        <Button
-          className="discard-btn"
-          variant="outline-dark"
-          size="sm"
-          disabled={this.props.rank === 1}
-          onClick={this.decreaseRank}
-        >Decrease rank</Button>
-        <Button
-          className="discard-btn"
-          variant="outline-dark"
-          size="sm"
-          onClick={this.increaseRank}
-        >Increase rank</Button>
+        <div className="top-section">
+          <p className="name-rank">{this.props.name} (rank: {this.props.rank})</p>
+
+          <Button
+            className="discard-btn"
+            variant="outline-dark"
+            size="sm"
+            onClick={this.discard}
+          >Forgive</Button>
+          <Button
+            className="discard-btn"
+            variant="outline-dark"
+            size="sm"
+            disabled={this.props.rank === 1}
+            onClick={this.decreaseRank}
+          >Decrease rank</Button>
+          <Button
+            className="discard-btn"
+            variant="outline-dark"
+            size="sm"
+            onClick={this.increaseRank}
+          >Increase rank</Button>
+        </div>
+
+        <MortalEnemyDescription enemy_id={this.props.enemy_id} description={this.props.description} />
       </li>
     );
   }

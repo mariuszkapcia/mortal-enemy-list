@@ -5,14 +5,18 @@
   font-size:       20px;
   margin:          5px 10px;
 
-  .name-rank {
-    display: inline-block;
-    margin:  0;
-  }
+  .top-section {
+    margin-bottom: 10px;
 
-  .discard-btn {
-    display:      inline-block;
-    float:        right;
-    margin-right: 5px;
+    .name-rank {
+      display: inline-block;
+      margin:  0;
+    }
+
+    .discard-btn {
+      display:      inline-block;
+      float:        right;
+      margin-right: 5px;
+    }
   }
 }

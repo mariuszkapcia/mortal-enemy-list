@@ -1,24 +1,28 @@
-# README
+# Mortal enemy list server
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Purpose of this sample application is to show how to create very granular API for task-based UI.
 
-Things you may want to cover:
+There are no tests in this project. If you want to see how this type of architecture can be tested check out my other projects.
 
-* Ruby version
+## Local environment setup
 
-* System dependencies
+### Ruby version
 
-* Configuration
+2.5.0
 
-* Database creation
+### Install gems
 
-* Database initialization
+```ruby
+bundle install --path vendor/bundle
+```
 
-* How to run the test suite
+### Setup database
+```ruby
+bundle exec rake db:create
+bundle exec rake db:migrate
+```
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### Start development server
+```ruby
+bundle exec rails s -p 3010
+```

@@ -80,8 +80,8 @@ module Enemies
       @nefarious_deeds.push(event.data[:nefarious_deed])
     end
 
-    def apply_enemy_nefarious_deed_forgived(event)
-      @nefarious_deeds.reject! { |nefarious_deed| nefarious_deeds.eql?(event.data[:nefarious_deed]) }
+    def apply_enemy_nefarious_deed_forgiven(event)
+      @nefarious_deeds.reject! { |nefarious_deed| nefarious_deed.eql?(event.data[:nefarious_deed]) }
     end
 
     def apply_enemy_rank_increased(event)

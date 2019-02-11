@@ -57,6 +57,28 @@ class EnemiesController < ApiController
     head :no_content
   end
 
+  def add_nefarious_deed
+    command_bus.call(
+      Enemies::AddEnemyNefariousDeed.new(
+        enemy_id:       params[:id],
+        nefarious_deed: params[:nefarious_deed]
+      )
+    )
+
+    head :no_content
+  end
+
+  def forgive_nefarious_deed
+    command_bus.call(
+      Enemies::ForgiveEnemyNefariousDeed.new(
+        enemy_id:       params[:id],
+        nefarious_deed: params[:nefarious_deed]
+      )
+    )
+
+    head :no_content
+  end
+
   private
 
   def command_bus

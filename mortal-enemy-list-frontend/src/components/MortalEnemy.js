@@ -54,21 +54,24 @@ class MortalEnemy extends Component {
   render() {
     return (
       <li className="mortal-enemy">
-        <p className="name-rank">{this.props.name} | rank: {this.props.rank}</p>
+        <p className="name-rank">{this.props.name} (rank: {this.props.rank})</p>
         <Button
           className="discard-btn"
           variant="outline-dark"
+          size="sm"
           onClick={this.discard}
         >Forgive</Button>
         <Button
           className="discard-btn"
           variant="outline-dark"
+          size="sm"
           disabled={this.props.rank === 1}
           onClick={this.decreaseRank}
         >Decrease rank</Button>
         <Button
           className="discard-btn"
           variant="outline-dark"
+          size="sm"
           onClick={this.increaseRank}
         >Increase rank</Button>
       </li>

@@ -2,15 +2,14 @@ import React, { Component } from 'react';
 import Button               from 'react-bootstrap/Button';
 
 import MortalEnemyDescription from './MortalEnemyDescription'
+import MortalEnemyRank        from './MortalEnemyRank'
 import './MortalEnemy.scss'
 
 class MortalEnemy extends Component {
   constructor(props) {
     super(props);
 
-    this.discard      = this.discard.bind(this);
-    this.increaseRank = this.increaseRank.bind(this);
-    this.decreaseRank = this.decreaseRank.bind(this);
+    this.discard = this.discard.bind(this);
   }
 
   discard() {
@@ -26,37 +25,11 @@ class MortalEnemy extends Component {
     .then(response => this.props.discardEnemy(enemy_id))
   }
 
-  increaseRank() {
-    const enemy_id = this.props.enemy_id;
-
-    fetch(`http://localhost:3010/enemies/${enemy_id}/increase_rank`, {
-      method: 'PUT',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json',
-      }
-    })
-    .then(response => this.props.increaseEnemyRank(enemy_id))
-  }
-
-  decreaseRank() {
-    const enemy_id = this.props.enemy_id;
-
-    fetch(`http://localhost:3010/enemies/${enemy_id}/decrease_rank`, {
-      method: 'PUT',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json',
-      }
-    })
-    .then(response => this.props.decreaseEnemyRank(enemy_id))
-  }
-
   render() {
     return (
       <li className="mortal-enemy">
         <div className="top-section">
-          <p className="name-rank">{this.props.name} (rank: {this.props.rank})</p>
+          <p className="name">{this.props.name}</p>
 
           <Button
             className="discard-btn"
@@ -64,21 +37,13 @@ class MortalEnemy extends Component {
             size="sm"
             onClick={this.discard}
           >Forgive</Button>
-          <Button
-            className="discard-btn"
-            variant="outline-dark"
-            size="sm"
-            disabled={this.props.rank === 1}
-            onClick={this.decreaseRank}
-          >Decrease rank</Button>
-          <Button
-            className="discard-btn"
-            variant="outline-dark"
-            size="sm"
-            onClick={this.increaseRank}
-          >Increase rank</Button>
         </div>
 
+        <MortalEnemyRank
+          enemy_id={this.props.enemy_id}
+          rank={this.props.rank}
+          increaseEnemyRank={this.props.increaseEnemyRank}
+          decreaseEnemyRank={this.props.decreaseEnemyRank} />
         <MortalEnemyDescription enemy_id={this.props.enemy_id} description={this.props.description} />
       </li>
     );

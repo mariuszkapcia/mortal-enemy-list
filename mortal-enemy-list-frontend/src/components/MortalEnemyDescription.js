@@ -27,10 +27,6 @@ class MortalEnemyDescription extends Component {
         description: description,
       })
     })
-    .then(response => {
-      // this.props.putNewEnemyOnList({id: uuid, name: name, rank: 1});
-      // this.setState({ description: '' });
-    });
   }
 
   handleDescriptionChange(event) {

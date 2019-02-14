@@ -19,7 +19,7 @@ class MortalEnemyDescription extends Component {
   }
 
   sendNewDescription(enemy_id, description) {
-    fetch(`${ApiService.host}/enemies/${enemy_id}/provide_description`, {
+    fetch(`${ApiService.host()}/enemies/${enemy_id}/provide_description`, {
       method: 'PUT',
       headers: {
         'Accept': 'application/json',

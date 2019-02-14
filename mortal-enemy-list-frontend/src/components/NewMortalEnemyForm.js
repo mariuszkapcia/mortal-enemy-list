@@ -22,7 +22,7 @@ class NewMortalEnemyForm extends Component {
     const uuid = uuidv4();
     const name = this.state.name;
 
-    fetch(`${ApiService.host}/enemies`, {
+    fetch(`${ApiService.host()}/enemies`, {
       method: 'POST',
       headers: {
         'Accept': 'application/json',

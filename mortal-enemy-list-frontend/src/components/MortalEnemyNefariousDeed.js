@@ -15,7 +15,7 @@ class MortalEnemyNefariousDeed extends Component {
   sendForgiveNefariousDeed() {
     const enemy_id = this.props.enemy_id;
 
-    fetch(`${ApiService.host}/enemies/${enemy_id}/forgive_nefarious_deed`, {
+    fetch(`${ApiService.host()}/enemies/${enemy_id}/forgive_nefarious_deed`, {
       method: 'PUT',
       headers: {
         'Accept': 'application/json',

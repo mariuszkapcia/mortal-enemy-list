@@ -20,7 +20,7 @@ class NewMortalEnemyNefariousDeedForm extends Component {
   sendNewNefariousDeed() {
     const nefarious_deed = this.state.nefarious_deed;
 
-    fetch(`${ApiService.host}/enemies/${this.props.enemy_id}/add_nefarious_deed`, {
+    fetch(`${ApiService.host()}/enemies/${this.props.enemy_id}/add_nefarious_deed`, {
       method: 'PUT',
       headers: {
         'Accept': 'application/json',

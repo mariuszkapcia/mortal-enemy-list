@@ -20,7 +20,7 @@ class MortalEnemyRank extends Component {
   increaseRank() {
     const enemy_id = this.props.enemy_id;
 
-    fetch(`${ApiService.host}/enemies/${enemy_id}/increase_rank`, {
+    fetch(`${ApiService.host()}/enemies/${enemy_id}/increase_rank`, {
       method: 'PUT',
       headers: {
         'Accept': 'application/json',
@@ -33,7 +33,7 @@ class MortalEnemyRank extends Component {
   decreaseRank() {
     const enemy_id = this.props.enemy_id;
 
-    fetch(`${ApiService.host}/enemies/${enemy_id}/decrease_rank`, {
+    fetch(`${ApiService.host()}/enemies/${enemy_id}/decrease_rank`, {
       method: 'PUT',
       headers: {
         'Accept': 'application/json',

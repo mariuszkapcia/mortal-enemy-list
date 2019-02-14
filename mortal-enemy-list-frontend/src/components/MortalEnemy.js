@@ -18,7 +18,7 @@ class MortalEnemy extends Component {
   discard() {
     const enemy_id = this.props.enemy_id;
 
-    fetch(`${ApiService.host}/enemies/${enemy_id}`, {
+    fetch(`${ApiService.host()}/enemies/${enemy_id}`, {
       method: 'DELETE',
       headers: {
         'Accept': 'application/json',

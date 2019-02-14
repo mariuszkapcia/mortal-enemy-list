@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import ApiService from '../services/ApiService'
+
 import './MortalEnemyDescription.scss'
 
 class MortalEnemyDescription extends Component {
@@ -17,7 +19,7 @@ class MortalEnemyDescription extends Component {
   }
 
   sendNewDescription(enemy_id, description) {
-    fetch(`http://localhost:3010/enemies/${enemy_id}/provide_description`, {
+    fetch(`${ApiService.host}/enemies/${enemy_id}/provide_description`, {
       method: 'PUT',
       headers: {
         'Accept': 'application/json',

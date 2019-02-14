@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import Button               from 'react-bootstrap/Button';
 
+import ApiService from '../services/ApiService'
+
 import './NewMortalEnemyNefariousDeedForm.scss'
 
 class NewMortalEnemyNefariousDeedForm extends Component {
@@ -18,7 +20,7 @@ class NewMortalEnemyNefariousDeedForm extends Component {
   sendNewNefariousDeed() {
     const nefarious_deed = this.state.nefarious_deed;
 
-    fetch(`http://localhost:3010/enemies/${this.props.enemy_id}/add_nefarious_deed`, {
+    fetch(`${ApiService.host}/enemies/${this.props.enemy_id}/add_nefarious_deed`, {
       method: 'PUT',
       headers: {
         'Accept': 'application/json',

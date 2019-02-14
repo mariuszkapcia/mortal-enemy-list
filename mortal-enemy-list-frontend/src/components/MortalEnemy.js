@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import Button               from 'react-bootstrap/Button';
 
+import ApiService from '../services/ApiService'
+
 import MortalEnemyDescription       from './MortalEnemyDescription'
 import MortalEnemyRank              from './MortalEnemyRank'
 import MortalEnemyNefariousDeedList from './MortalEnemyNefariousDeedList'
@@ -16,7 +18,7 @@ class MortalEnemy extends Component {
   discard() {
     const enemy_id = this.props.enemy_id;
 
-    fetch(`http://localhost:3010/enemies/${enemy_id}`, {
+    fetch(`${ApiService.host}/enemies/${enemy_id}`, {
       method: 'DELETE',
       headers: {
         'Accept': 'application/json',

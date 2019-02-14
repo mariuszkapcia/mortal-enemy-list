@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import Button               from 'react-bootstrap/Button';
 import uuidv4 from 'uuid/v4';
 
+import ApiService from '../services/ApiService'
+
 import './NewMortalEnemyForm.scss'
 
 class NewMortalEnemyForm extends Component {
@@ -20,7 +22,7 @@ class NewMortalEnemyForm extends Component {
     const uuid = uuidv4();
     const name = this.state.name;
 
-    fetch('http://localhost:3010/enemies', {
+    fetch(`${ApiService.host}/enemies`, {
       method: 'POST',
       headers: {
         'Accept': 'application/json',

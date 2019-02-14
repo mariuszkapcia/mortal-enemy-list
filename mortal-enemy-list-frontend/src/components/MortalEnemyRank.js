@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import Button               from 'react-bootstrap/Button';
 
+import ApiService from '../services/ApiService'
+
 import './MortalEnemyRank.scss'
 
 class MortalEnemyRank extends Component {
@@ -18,7 +20,7 @@ class MortalEnemyRank extends Component {
   increaseRank() {
     const enemy_id = this.props.enemy_id;
 
-    fetch(`http://localhost:3010/enemies/${enemy_id}/increase_rank`, {
+    fetch(`${ApiService.host}/enemies/${enemy_id}/increase_rank`, {
       method: 'PUT',
       headers: {
         'Accept': 'application/json',
@@ -31,7 +33,7 @@ class MortalEnemyRank extends Component {
   decreaseRank() {
     const enemy_id = this.props.enemy_id;
 
-    fetch(`http://localhost:3010/enemies/${enemy_id}/decrease_rank`, {
+    fetch(`${ApiService.host}/enemies/${enemy_id}/decrease_rank`, {
       method: 'PUT',
       headers: {
         'Accept': 'application/json',

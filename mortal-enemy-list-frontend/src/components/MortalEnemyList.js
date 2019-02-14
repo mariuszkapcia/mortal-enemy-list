@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import ApiService from '../services/ApiService'
+
 import MortalEnemy        from './MortalEnemy'
 import NewMortalEnemyForm from './NewMortalEnemyForm'
 import './MortalEnemyList.scss'
@@ -19,7 +21,7 @@ class MortalEnemyList extends Component {
   }
 
   componentDidMount() {
-    fetch('http://localhost:3010/enemies')
+    fetch(`${ApiService.host()}/enemies`)
       .then(response => response.json())
       .then(data => this.setState({ enemies: data }))
       .catch(error => alert('There is a problem with server connection, try again later.'))

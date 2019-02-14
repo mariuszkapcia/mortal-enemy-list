@@ -26,3 +26,10 @@ bundle exec rake db:migrate
 ```ruby
 bundle exec rails s -p 3010
 ```
+### Deployment
+
+From main repository directory:
+
+```bash
+git subtree push --prefix mortal-enemy-list-server heroku master
+```
